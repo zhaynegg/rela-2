@@ -10,3 +10,11 @@ class Note(models.Model):
 
     def __str__(self):
         return self.title
+    
+# the model many to many
+class Couple(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class CoupleUsers(models.Model):
+    couple_id = models.ForeignKey(Couple, on_delete=models.CASCADE, related_name="couples")
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="couples")

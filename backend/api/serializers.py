@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Note
+from .models import Note, Couple, CoupleUsers
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -14,6 +14,18 @@ class UserSerializer(serializers.ModelSerializer):
         return user
     
 class NoteSerializer(serializers.ModelSerializer):
-    model = Note
-    fields = ["title", "content", "created_at", "author"]
-    extra_kwargs = {"author": {"read_only": True}}
+    class Meta:
+        model = Note
+        fields = ["id", "title", "content", "created_at", "author"]
+        extra_kwargs = {"author": {"read_only": True}}
+
+class CoupleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Couple
+        fields = ["id", "created_at"]
+
+class CoupleUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CoupleUsers
+        fields = ["id", "couple_id", "user_id"]
+        extra_kwargs = {"couple_id": {"read_only": True}, "used_id": {"read_only": True}}
