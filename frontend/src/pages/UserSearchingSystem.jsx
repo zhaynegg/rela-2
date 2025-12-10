@@ -24,7 +24,9 @@ function UserSearchingSystem() {
             .post(`/api/users/connect/${id}/`)
             .then((res) => {
                 if (res.status === 201) alert("Couple created!");
-                else alert("Failed to create couple.");
+                else{
+                    alert("Failed to create couple.");
+                }
                 getUsers();
             })
             .catch((error) => alert(error));

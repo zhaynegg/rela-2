@@ -7,11 +7,23 @@ function Home() {
     const [notes, setNotes] = useState([]);
     const [content, setContent] = useState("");
     const [title, setTitle] = useState("");
+    const [me, setMe] = useState(null);
 
     useEffect(() => {
         getNotes();
+        getMe();
     }, []);
 
+    const getMe = () => {
+        api
+            .get("/api/me/")
+            .then((res) => res.data)
+            .then((data) => {
+                setMe(data.username);
+                console.log(data);
+            })
+            .catch((err) => alert(err));
+    }
     const getNotes = () => {
         api
             .get("/api/notes/")
@@ -48,13 +60,7 @@ function Home() {
 
     return (
         <div>
-            <div>
-                <h2>Notes</h2>
-                {notes.map((note) => (
-                    <Note note={note} onDelete={deleteNote} key={note.id} />
-                ))}
-            </div>
-            <h2>Create a Note</h2>
+            <center><h2>Create a Note</h2></center>
             <form onSubmit={createNote}>
                 <label htmlFor="title">Title:</label>
                 <br />
@@ -78,6 +84,13 @@ function Home() {
                 <br />
                 <input type="submit" value="Submit"></input>
             </form>
+
+            <div class="notes-container">
+                <center><h2>Letters</h2></center>
+                {notes.map((note) => (
+                    <Note note={note} onDelete={deleteNote} key={note.id} currentUser = {me}/>
+                ))}
+            </div>
         </div>
     );
 }

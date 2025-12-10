@@ -1,33 +1,64 @@
+/* Wrapper for left/right alignment */
+.note-wrapper {
+    display: flex;
+    width: 100%;
+    margin: 6px 0;       /* smaller vertical spacing */
+}
+
+/* Left messages */
+.note-wrapper.theirs {
+    justify-content: flex-start;
+}
+
+/* Right messages */
+.note-wrapper.mine {
+    justify-content: flex-end;
+}
+
+/* Chat bubble */
 .note-container {
-  padding: 10px;
-  margin: 20px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    max-width: 60%;
+    padding: 12px;        /* reduced padding */
+    border-radius: 14px;
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;             /* reduced internal spacing */
+}
+
+/* My bubble */
+.note-wrapper.mine .note-container {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Remove excess space between lines */
+.note-author {
+    font-weight: bold;
+    margin: 0 0 2px 0;
 }
 
 .note-title {
-  color: #333;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 .note-content {
-  color: #666;
+    margin: 0;
 }
 
 .note-date {
-  color: #999;
-  font-size: 0.8rem;
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin: 2px 0 0 0;
 }
 
+/* Button */
 .delete-button {
-  background-color: #f44336; /* Red */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.delete-button:hover {
-  background-color: #d32f2f; /* Darker red */
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
 }

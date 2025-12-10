@@ -66,3 +66,13 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: #0056b3;
 }
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;                 /* Distance between messages */
+    max-width: 700px;          /* Controls width of chat area */
+    margin: 0 auto;            /* Center horizontally */
+    padding: 20px 10px;        /* Some padding */
+    min-height: 80vh;          /* So page looks fuller */
+    position: relative;
+}
