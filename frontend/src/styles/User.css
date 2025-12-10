@@ -1,0 +1,24 @@
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* soft light background */
+    padding: 15px 25px;
+    border-radius: 12px; /* rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* soft shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* smooth hover */
+    width: fit-content; /* container wraps content */
+    margin: 10px auto; /* center horizontally */
+}
+
+.user-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.user-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}

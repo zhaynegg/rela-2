@@ -19,13 +19,22 @@ function UserSearchingSystem() {
             })
             .catch((err) => alert(err));
     };
-
+    const connectUser = (id) => {
+        api
+            .post(`/api/users/connect/${id}/`)
+            .then((res) => {
+                if (res.status === 201) alert("Couple created!");
+                else alert("Failed to create couple.");
+                getUsers();
+            })
+            .catch((error) => alert(error));
+    };
     return (
         <div>
             <div>
                 <h2>All users that do not have connection</h2>
                 {users.map((user) => (
-                    <User user={user} key={user.id} />
+                    <User user={user} connectUser={connectUser} key={user.id} />
                 ))}
             </div>
         </div>
