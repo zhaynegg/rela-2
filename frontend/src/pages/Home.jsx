@@ -60,6 +60,15 @@ function Home() {
 
     return (
         <div>
+            <nav class="navbar">
+            <div class="logo">MySite</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Evolution tree</a></li>
+                <li><a href="/users">Connection</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            </nav>
             <center><h2>Create a Note</h2></center>
             <form onSubmit={createNote}>
                 <label htmlFor="title">Title:</label>

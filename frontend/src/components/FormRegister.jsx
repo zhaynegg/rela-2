@@ -46,6 +46,7 @@ function Form({ route, method }) {
             <button className="form-button" type="submit">
                 {name}
             </button>
+            <a href="/login"> Already have an account?</a>
         </form>
     );
 }

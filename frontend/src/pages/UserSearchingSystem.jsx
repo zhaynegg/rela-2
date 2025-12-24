@@ -33,6 +33,15 @@ function UserSearchingSystem() {
     };
     return (
         <div>
+            <nav class="navbar">
+            <div class="logo">MySite</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Evolution tree</a></li>
+                <li><a href="/users">Connection</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            </nav>
             <div>
                 <h2>All users that do not have connection</h2>
                 {users.map((user) => (
