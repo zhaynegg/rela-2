@@ -4,8 +4,14 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
+import EvolutionTree from "./pages/EvolutionTree"
 import UserSearchingSystem from "./pages/UserSearchingSystem"
 import ProtectedRoute from "./components/ProtectedRoute"
+import InteractiveGames from "./pages/InteractiveGames"
+
+// Games
+import FirstMade from "./pages/games/FirstMade"
+import Quiz from "./pages/games/Quiz"
 
 function Logout() {
   localStorage.clear()
@@ -34,6 +40,38 @@ function App() {
           element={
             <ProtectedRoute>
               <UserSearchingSystem />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/evolution-tree"
+          element={
+            <ProtectedRoute>
+              <EvolutionTree />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/interactive-games"
+          element={
+            <ProtectedRoute>
+              <InteractiveGames />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/game-1"
+          element={
+            <ProtectedRoute>
+              <FirstMade />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/game-2"
+          element={
+            <ProtectedRoute>
+              <Quiz />
             </ProtectedRoute>
           }
         />

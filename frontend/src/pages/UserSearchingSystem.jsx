@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api"
 import User from "../components/User"
+import "../styles/UserSearchingSystem.css"
 
 function UserSearchingSystem() {
     const [users, setUsers] = useState([]);
@@ -37,12 +38,13 @@ function UserSearchingSystem() {
             <div class="logo">MySite</div>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">Evolution tree</a></li>
+                <li><a href="/evolution-tree">Evolution tree</a></li>
+                <li><a href="/interactive-games">Interactive games</a></li>
                 <li><a href="/users">Connection</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
             </nav>
-            <div>
+            <div className="page">
                 <h2>All users that do not have connection</h2>
                 {users.map((user) => (
                     <User user={user} connectUser={connectUser} key={user.id} />
